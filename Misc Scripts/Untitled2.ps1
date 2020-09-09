@@ -1,0 +1,1 @@
+﻿Invoke-AzVMRunCommand -ResourceGroupName 'bel_ncentral01_rg' -Name 'bell-dc2' -CommandId 'RunPowerShellScript' -ScriptPath 'https://belveeam01.blob.core.windows.net/veeam-blob-01/bel-updateDNS.ps1'
