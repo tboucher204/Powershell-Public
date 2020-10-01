@@ -1,8 +1,8 @@
-﻿$srcFolder = "Y:\Videos\Kids TV Series\Tom and Jerry\Season 1960"
+﻿$srcFolder = "Y:\Videos\Anime TV\My Hero Academia (2016)\Season 3"
 $myfile = ""
 $count = 1
 
-$files = Get-ChildItem -Path $srcFolder -Recurse -Filter *.mp4
+$files = Get-ChildItem -Path $srcFolder -Recurse -Filter *.mkv
 
 Function Extract-String {
     Param(
@@ -40,6 +40,10 @@ Function Extract-String {
     }
 }
 
+$tmpseason = Extract-String -string $srcFolder -character " " -range Right
+$intseason = [int]::Parse($tmpseason)
+$season = $intseason.tostring("00")
+
 foreach ($f in $files) {
     $myfullpath = $f.FullName
     $myfile = $f.Name
@@ -50,8 +54,8 @@ foreach ($f in $files) {
     # Everything right of the - (dash)
     $mytempfile = Extract-String -string $myfile -character "-" -range Right
     $episode = $count.tostring("00")
-    $mynewfile = "S1960E$episode - $mytempfile"
-    #$mynewfile = "$myfile"
+    $mynewfile = "S"+$season+"E"+$episode+" - "+$mytempfile
+    # $mynewfile = "$myfile"
     #$currentFolder = $f.DirectoryName
     "File $myfile will be renamed to $mynewfile"
     Rename-Item -LiteralPath $myfullpath $mynewfile
