@@ -1,8 +1,8 @@
-﻿$srcFolder = "Y:\Videos\Anime TV\My Hero Academia (2016)\Season 3"
+﻿$srcFolder = "Y:\_archive\Doctor Who Seasons 1 to 26\Season 1"
 $myfile = ""
 $count = 1
 
-$files = Get-ChildItem -Path $srcFolder -Recurse -Filter *.mkv
+$files = Get-ChildItem -Path $srcFolder -Recurse -Filter *.avi
 
 Function Extract-String {
     Param(
@@ -50,9 +50,9 @@ foreach ($f in $files) {
     # Just Prepend
     #$mytempfile = $myfile
     # Everything left of the - (dash)
-    #$mytempfile = Extract-String -string $myfile -character "-" -range Left
+    #$mytempfile = Extract-String -string $myfile -character " " -range Left
     # Everything right of the - (dash)
-    $mytempfile = Extract-String -string $myfile -character "-" -range Right
+    $mytempfile = Extract-String -string $myfile -character " " -range Right
     $episode = $count.tostring("00")
     $mynewfile = "S"+$season+"E"+$episode+" - "+$mytempfile
     # $mynewfile = "$myfile"
