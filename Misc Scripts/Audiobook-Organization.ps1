@@ -1,4 +1,4 @@
-﻿$rootfolder = "D:\ServerFolders\Company\Audiobooks"
+﻿$rootfolder = "Y:\Audiobooks"
 
 Function Extract-String {
     Param(
@@ -49,7 +49,7 @@ if (!(Test-Path -Path "$rootfolder\$authornametrim\$booknametrim")) {
     $newpath = "$rootfolder\$authornametrim\$booknametrim"
 }
 #move-item -path $File.FullName -destination $newpath
-#$File
-#$bookname.trim()
-#$authorname.trim()
-}
+$File
+$bookname.trim()
+$authorname.trim()
+"Audiobook $File would be moved to $newpath"

@@ -61,7 +61,7 @@ $changelist    = ''
  
 
 # Login to Azure Reaource Manager
-#Login-AzAccount
+Login-AzAccount
 #Connect-AzAccount 
  
 Function GetDiskSize ($DiskURI) 
@@ -113,11 +113,11 @@ Add-Content $OutputCSVPath$OutputCSVFile$outputLOGExt $outputLOG
  
 # Get a list of all subscriptions (or a single subscription) 
 #"Retrieving all Subscriptions..." 
-#$Subscriptions = Get-AzSubscription | Sort SubscriptionName  
-#"Found: " + $Subscriptions.Count
+$Subscriptions = Get-AzSubscription | Sort SubscriptionName  
+"Found: " + $Subscriptions.Count
   
 # ***  NOTE: Uncomment the following line if you want to limit the query to a specific subscription 
-$Subscriptions = Get-AzSubscription | ? {$_.Name -eq "Microsoft Azure Sponsorship 2017"} 
+#$Subscriptions = Get-AzSubscription | ? {$_.Name -eq "Microsoft Azure Sponsorship 2017"} 
 "Connecting to: " + $Subscriptions.Name 
 $outputLOG = "Connecting to: " + $Subscriptions.Name
 Add-Content $OutputCSVPath$OutputCSVFile$outputLOGExt $outputLOG
@@ -471,16 +471,16 @@ foreach($subscription in $Subscriptions)  
                             Az_VNicPublicIP = $NICPublicIP 
                             #Az_VNicPublicIPAllocMethod = $NICPublicAllocationMethod 
                             #Az_VM_Instance_SLA = $AllVMDisksPremium
-                            #Az_OSDisk = $OSDiskName 
-                            #Az_OSDiskHCache = $OSDiskHCache
-                            #Az_OSDiskSize = $OSDiskSize
-                            #Az_OSDiskTier = $OSDiskTier  
-                            #Az_OSDiskRepl = $OSDiskRepl 
-                            #Az_DataDisks = $DataDiskObj.Name -join "`n" 
-                            #Az_DataDisksHCache = $DataDiskObj.HostCache -join "`n" 
-                            #Az_DataDisksSize = $DataDiskObj.Size -join "`n" 
-                            #Az_DataDisksTier = $DataDiskObj.Tier -join "`n"
-                            #Az_DataDisksRepl = $DataDiskObj.Repl -join "`n"
+                            Az_OSDisk = $OSDiskName 
+                            Az_OSDiskHCache = $OSDiskHCache
+                            Az_OSDiskSize = $OSDiskSize
+                            Az_OSDiskTier = $OSDiskTier  
+                            Az_OSDiskRepl = $OSDiskRepl 
+                            Az_DataDisks = $DataDiskObj.Name -join "`n" 
+                            Az_DataDisksHCache = $DataDiskObj.HostCache -join "`n" 
+                            Az_DataDisksSize = $DataDiskObj.Size -join "`n" 
+                            Az_DataDisksTier = $DataDiskObj.Tier -join "`n"
+                            Az_DataDisksRepl = $DataDiskObj.Repl -join "`n"
                             Az_VMTags = $taglist 
                             #$AllVMTags[0] = $ThisVMTags[0] 
                             #$AllVMTags[1] = $ThisVMTags[1] 
@@ -497,7 +497,7 @@ foreach($subscription in $Subscriptions)  
                             #$AllVMTags[12] = $ThisVMTags[12] 
                             #$AllVMTags[13] = $ThisVMTags[13] 
                             #$AllVMTags[14] = $ThisVMTags[14]
-                            LOGICALIS = $tLogicalis
+                            #LOGICALIS = $tLogicalis
             }
  
         }  #Array $AzureVMs 
