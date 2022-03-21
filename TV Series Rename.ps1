@@ -1,8 +1,8 @@
-﻿$srcFolder = "Y:\_archive\Doctor Who Seasons 1 to 26\Season 1"
+﻿$srcFolder = "Y:\Videos\TV Series\Mystery Science Theater 3000 (1987)\Season 3"
 $myfile = ""
 $count = 1
 
-$files = Get-ChildItem -Path $srcFolder -Recurse -Filter *.avi
+$files = Get-ChildItem -Path $srcFolder -Recurse #-Filter *.avi
 
 Function Extract-String {
     Param(
@@ -54,8 +54,8 @@ foreach ($f in $files) {
     # Everything right of the - (dash)
     $mytempfile = Extract-String -string $myfile -character " " -range Right
     $episode = $count.tostring("00")
-    $mynewfile = "S"+$season+"E"+$episode+" - "+$mytempfile
-    # $mynewfile = "$myfile"
+    #$mynewfile = "S"+$season+"E"+$episode+" - "+$mytempfile
+    $mynewfile = $myfile -replace "S02","S03"
     #$currentFolder = $f.DirectoryName
     "File $myfile will be renamed to $mynewfile"
     Rename-Item -LiteralPath $myfullpath $mynewfile

@@ -1,5 +1,5 @@
-﻿$filePath = 'G:\temp\Spirited Away (2001).forced.srt'
-$timeoffset = '-5000'   #This offset is in Milliseconds (1000 milliseconds = 1 second)
+﻿$filePath = 'Y:\Videos\Movies\Star Trek Kirk Collection\Star Trek V - The Final Frontier (1989)\Star Trek V - The Final Frontier (1989).eng.forced.srt'
+$timeoffset = '+1000'   #This offset is in Milliseconds (1000 milliseconds = 1 second)
 
 Function Extract-String {
     Param(
